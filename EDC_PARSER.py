@@ -56,8 +56,35 @@ def mergeRelation(raw_data):
                 raw_data.drop(ll[1:],inplace=True)
         except:
             pass
+    for index, row in raw_data.iterrows():
+        if row['CTCAE等级'] == '':
+          raw_data.loc[index,'CTCAE等级'] = row['NCI-CTCAE5.0分级']
+    raw_data.drop(['NCI-CTCAE5.0分级'],axis=1,inplace=True)
     raw_data.drop(['prev'],axis=1,inplace=True)
     raw_data.drop(['next'],axis=1,inplace=True)
+    raw_data.drop(['表'],axis=1,inplace=True)
+    raw_data.drop(['表名称'],axis=1,inplace=True)
+    raw_data.drop(['记录ID'],axis=1,inplace=True)
+    raw_data.drop(['受试者信息记录ID'],axis=1,inplace=True)
+    raw_data.drop(['项目代码'],axis=1,inplace=True)
+    raw_data.drop(['CRF状态'],axis=1,inplace=True)
+    raw_data.drop(['研究中心名称'],axis=1,inplace=True)
+    raw_data.drop(['研究者姓名'],axis=1,inplace=True)
+    raw_data.drop(['研究者代码'],axis=1,inplace=True)
+    raw_data.drop(['访视名称'],axis=1,inplace=True)
+    raw_data.drop(['访视编号'],axis=1,inplace=True)
+    raw_data.drop(['访视内序号'],axis=1,inplace=True)
+    raw_data.drop(['eCRF版本号'],axis=1,inplace=True)
+    raw_data.drop(['方案版本号'],axis=1,inplace=True)
+    raw_data.drop(['自签署知情同意书以来，有无不良事件发生'],axis=1,inplace=True)
+    raw_data.drop(['序号'],axis=1,inplace=True)
+    raw_data.drop(['患者是否因此不良事件而退出试验'],axis=1,inplace=True)
+    raw_data.drop(['是否为SAE，如是请填写SAE表格'],axis=1,inplace=True)
+    raw_data.drop(['创 建 人'],axis=1,inplace=True)
+    raw_data.drop(['创建单位'],axis=1,inplace=True)
+    raw_data.drop(['创建时间'],axis=1,inplace=True)
+    raw_data.drop(['修 改 人'],axis=1,inplace=True)
+    raw_data.drop(['修改时间'],axis=1,inplace=True)
     print("关联AE合并完成")
     return raw_data
 

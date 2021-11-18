@@ -16,11 +16,8 @@ def parseRelation(raw_data):
                     and row_y['结束时间'] == row['开始时间'] 
 
             if match:
-                #raw_data.loc[index_y, 'before'] = row['NCI-CTCAE5.0分级']
-                #raw_data.loc[index_y, 'after'] = row_y['NCI-CTCAE5.0分级']
-                #raw_data.loc[index_y, '变化时间'] = row_y['开始时间']
-                raw_data.loc[index_y, 'prev'] = index
-                raw_data.loc[index, 'next'] = index_y
+                raw_data.loc[index_y, 'next'] = index
+                raw_data.loc[index, 'prev'] = index_y
     print("关联AE解析完成")
     return raw_data
 

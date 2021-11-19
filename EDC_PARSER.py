@@ -46,7 +46,7 @@ def mergeRelation(raw_data):
                         change_date = raw_data.loc[ll[i+1],'开始时间']
                         lev_with_date += str(lev) + "->" + str(lev_next) + "," + change_date
                     if i < len(ll) - 2:
-                        lev_with_date += ";"
+                        lev_with_date += ";\n"
                 raw_data.loc[ll[0],'CTCAE等级'] = lev_str
                 raw_data.loc[ll[0],'等级变化及时间'] = lev_with_date
                 print('删除关联条目:',ll[1:])
